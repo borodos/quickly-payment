@@ -1,0 +1,38 @@
+.card-payment {
+}
+
+.card-payment__title {
+  color: #413e3e;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  padding: 37px 0 40px 0;
+}
+
+.card-payment__wrapper {
+  padding: 19px 81px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-payment__column {
+}
+
+.card-payment__row {
+  display: flex;
+  align-items: center;
+}
+
+.card-payment__text--bold {
+  font-size: 18px;
+  font-weight: 400;
+  /* padding-right: ; */
+}
+
+.card-payment__text {
+  font-size: 22px;
+}

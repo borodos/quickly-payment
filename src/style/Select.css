@@ -1,0 +1,107 @@
+.select {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+}
+
+.select-contained {
+  background: #0972ff;
+  color: #fff;
+}
+
+.select-contained img {
+  color: #fff;
+}
+
+.select__text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+  padding: 0 32px;
+}
+
+.select__text span {
+  margin: 0 auto;
+}
+
+.select__list {
+  position: absolute;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  padding: 10px 20px;
+  max-height: 0px;
+  overflow-y: scroll;
+  top: calc(100% + 10px);
+  opacity: 0;
+  width: 100%;
+}
+
+.select__list--contained {
+  padding: 0;
+}
+
+.select__list::-webkit-scrollbar {
+  width: 8px;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+}
+
+.select__list::-webkit-scrollbar-thumb {
+  background-color: #6b6b6b;
+  border-radius: 10px;
+}
+
+.select__list--open {
+  opacity: 1;
+  max-height: 280px;
+}
+
+.select__list--open-contained {
+  opacity: 1;
+  max-height: 286px;
+}
+
+.select__list-element {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select__list-element:hover {
+  background-color: #dddddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.contained-list-element {
+  background: #abcfff;
+  padding: 15px 47px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contained-list-element li {
+  list-style: disc;
+  margin: 0 auto;
+  color: #000;
+}
+
+.contained-list-element:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.contained-list-element button {
+  height: 34px;
+  font-family: "Inter";
+  font-size: 17.411px;
+  font-weight: 300;
+  padding: 0 20px;
+}
