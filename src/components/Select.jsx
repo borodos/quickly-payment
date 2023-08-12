@@ -1,9 +1,7 @@
 import "../style/Select.css";
-import Arrow from "../../src/Arrow.svg";
-import ArrowWhite from "../../src/ArrowWhite.svg";
 import Button from "./Button";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Select = ({ className, contained, text, array }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +16,27 @@ const Select = ({ className, contained, text, array }) => {
     >
       <div className='select__text'>
         <span>{selectText || text}</span>
-        <img src={contained ? ArrowWhite : Arrow} alt='Icon' />
+        {contained ? (
+          <svg
+            width='26'
+            height='8'
+            viewBox='0 0 26 8'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d='M1 1.25L13 6.75002L25.5 1.25' stroke='white' stroke-width='2' />
+          </svg>
+        ) : (
+          <svg
+            width='26'
+            height='9'
+            viewBox='0 0 26 9'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path d='M1 1.5L13 7.00002L25.5 1.5' stroke='black' stroke-width='2' />
+          </svg>
+        )}
       </div>
       <div
         className={`${contained ? "select__list select__list--contained" : "select__list"} ${
