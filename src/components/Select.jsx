@@ -2,10 +2,12 @@ import "../style/Select.css";
 import Button from "./Button";
 import clsx from "clsx";
 import { useState } from "react";
+import { useDetectClickOutside } from "react-detect-click-outside";
 
 const Select = ({ className, contained, text, array }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectText, setSelectText] = useState("");
+  const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
 
   return (
     <div
@@ -13,6 +15,7 @@ const Select = ({ className, contained, text, array }) => {
         "select-contained": contained,
       })}
       onClick={() => setIsOpen(!isOpen)}
+      ref={ref}
     >
       <div className='select__text'>
         <span>{selectText || text}</span>
