@@ -57,8 +57,12 @@
     width: 70px;
   }
 
-  .header__button svg {
-    width: 80%;
+  .header__button .select__text {
+    width: auto;
+  }
+
+  .header__button svg:nth-child(2) {
+    display: none;
   }
 
   .header__button .select__list--contained {
@@ -69,7 +73,7 @@
     padding-right: 8px;
   }
 
-  .language img {
+  .language svg {
     width: 80%;
   }
 }
@@ -77,8 +81,6 @@
 @media (max-width: 450px) {
   .header__button {
     margin-right: 15px;
-    width: 55px;
-    min-width: 55px;
 
     font-size: 12px;
     padding: 6px 12px;
