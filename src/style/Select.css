@@ -192,7 +192,7 @@
   }
 
   .select__list--contained {
-    top: -300px;
+    /* top: -300px; */
   }
 
   .header__button .select__list--contained {
@@ -207,5 +207,14 @@
 
   .contained-list-element button {
     font-size: 14px;
+  }
+  body {
+    height: calc(100vh + 700px);
+  }
+}
+
+@media (max-width: 550px) {
+  body {
+    height: calc(100vh + 800px);
   }
 }
