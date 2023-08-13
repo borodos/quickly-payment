@@ -1,4 +1,6 @@
 .container {
-  margin: 0 190px;
+  margin: 0 auto;
   font-family: Inter;
+  max-width: 1300px;
+  padding: 0 9px 9px;
 }

@@ -31,10 +31,41 @@
 }
 
 .card-payer__select {
+  font-size: 18px;
+  height: 48px;
 }
 
 .card-payer__button {
   margin-top: 47px;
   padding: 13px 145px;
   font-size: 18px;
+  height: 48px;
+}
+
+@media (max-width: 1020px) {
+  .card-payer__input {
+    font-size: 15px;
+  }
+
+  .card-payer__select {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 880px) {
+  .card-payer__form-body {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (max-width: 643px) {
+  .card-payer__form-body {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .card-payer__button {
+    width: 100%;
+    font-size: 16px;
+    padding: 0;
+  }
 }

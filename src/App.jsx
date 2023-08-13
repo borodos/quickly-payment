@@ -4,12 +4,13 @@ import Container from "./components/Container";
 import Header from "./components/Header";
 
 function App() {
+  let language = "ru";
   return (
     <>
-      <Header />
+      <Header language={language} />
       <Container>
-        <CardPayment />
-        <CardPayer />
+        <CardPayment language={language} />
+        <CardPayer language={language} />
       </Container>
     </>
   );

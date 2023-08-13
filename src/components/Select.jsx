@@ -4,10 +4,19 @@ import clsx from "clsx";
 import { useState } from "react";
 import { useDetectClickOutside } from "react-detect-click-outside";
 
-const Select = ({ className, contained, text, array }) => {
+const Select = ({ className, contained, text, array, language }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectText, setSelectText] = useState("");
+  const [selectIcon, setSelectIcon] = useState("");
   const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
+
+  const setText = (value) => {
+    if (value.src) {
+      setSelectIcon(value.src);
+    } else {
+      setSelectText(value);
+    }
+  };
 
   return (
     <div
@@ -18,7 +27,7 @@ const Select = ({ className, contained, text, array }) => {
       ref={ref}
     >
       <div className='select__text'>
-        <span>{selectText || text}</span>
+        {selectIcon ? <img src={selectIcon} alt='Icon' /> : <span>{selectText || text}</span>}
         {contained ? (
           <svg
             width='26'
@@ -44,32 +53,51 @@ const Select = ({ className, contained, text, array }) => {
       <div
         className={`${contained ? "select__list select__list--contained" : "select__list"} ${
           isOpen ? (contained ? "select__list--open-contained" : "select__list--open") : "hidden"
-        }`}
+        } ${language ? "language-list" : ""}`}
       >
         {array
-          ? array.map((value, index) => (
-              <div
-                className={`${contained ? "contained-list-element" : "select__list-element"}`}
-                key={`${index}-${value}`}
-                onClick={() => setSelectText(value)}
-              >
-                {contained ? (
-                  <>
-                    <li>{value}</li>
-                    <Button
-                      className='select__button'
-                      contained
-                      onClick={(value) => setSelectText(value)}
-                      type='button'
-                    >
-                      Make Payment
-                    </Button>
-                  </>
-                ) : (
-                  value
-                )}
-              </div>
-            ))
+          ? array.map((value, index) =>
+              value.text ? (
+                <div
+                  className={`${
+                    contained ? "contained-list-element" : "select__list-element"
+                  } language-element`}
+                  key={`${index}-${value}`}
+                  onClick={() => setText(value)}
+                >
+                  {contained ? (
+                    <div className='language'>
+                      <span>{value.text}</span>
+                      <img src={value.src} alt='Icon' />
+                    </div>
+                  ) : (
+                    value
+                  )}
+                </div>
+              ) : (
+                <div
+                  className={`${contained ? "contained-list-element" : "select__list-element"}`}
+                  key={`${index}-${value}`}
+                  onClick={() => setSelectText(value)}
+                >
+                  {contained ? (
+                    <>
+                      <li>{value}</li>
+                      <Button
+                        className='select__button'
+                        contained
+                        onClick={(value) => setSelectText(value)}
+                        type='button'
+                      >
+                        Make Payment
+                      </Button>
+                    </>
+                  ) : (
+                    value
+                  )}
+                </div>
+              )
+            )
           : null}
       </div>
     </div>

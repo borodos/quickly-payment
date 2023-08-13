@@ -1,13 +1,46 @@
 import "../style/Header.css";
 import Button from "./Button";
+import Select from "./Select";
+import { languages } from "../languages";
 
 const Header = () => {
   return (
     <div className='header'>
       <div className='header__body'>
-        <Button className='header__button' contained>
-          ENG
-        </Button>
+        <Select
+          contained
+          className='header__button'
+          text={
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='40'
+              height='40'
+              viewBox='0 0 40 40'
+              fill='none'
+            >
+              <path
+                d='M11.6668 5.56304C14.1183 4.14495 16.9644 3.33333 20.0002 3.33333C29.2049 3.33333 36.6668 10.7953 36.6668 20C36.6668 29.2047 29.2049 36.6667 20.0002 36.6667C10.7954 36.6667 3.3335 29.2047 3.3335 20C3.3335 16.9643 4.14512 14.1181 5.5632 11.6667'
+                stroke='white'
+                stroke-width='1.5'
+                stroke-linecap='round'
+              />
+              <path
+                d='M24.7142 31.7851C24.0952 33.3328 23.3602 34.5604 22.5514 35.398C21.7425 36.2356 20.8756 36.6667 20.0002 36.6667C19.1247 36.6667 18.2578 36.2356 17.4489 35.398C16.6401 34.5604 15.9052 33.3328 15.2861 31.7851C14.6671 30.2375 14.176 28.4002 13.841 26.3781C13.5059 24.356 13.3335 22.1887 13.3335 20C13.3335 17.8113 13.5059 15.644 13.841 13.6219C14.176 11.5999 14.6671 9.76253 15.2861 8.21489C15.9052 6.66725 16.6401 5.43959 17.4489 4.60201C18.2578 3.76443 19.1247 3.33334 20.0002 3.33334C20.8756 3.33334 21.7425 3.76443 22.5514 4.60201C23.3602 5.43959 24.0951 6.66725 24.7142 8.21489C25.3333 9.76253 25.8243 11.5999 26.1594 13.6219C26.4944 15.644 26.6668 17.8113 26.6668 20C26.6668 22.1887 26.4944 24.356 26.1594 26.3781'
+                stroke='white'
+                stroke-width='1.5'
+                stroke-linecap='round'
+              />
+              <path
+                d='M3.3335 20H16.6668M36.6668 20H23.3335'
+                stroke='white'
+                stroke-width='1.5'
+                stroke-linecap='round'
+              />
+            </svg>
+          }
+          array={languages}
+          language
+        />
         <div className='header__title'>
           <svg
             width='163'

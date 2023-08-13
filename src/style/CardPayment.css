@@ -30,9 +30,69 @@
 .card-payment__text--bold {
   font-size: 18px;
   font-weight: 400;
-  /* padding-right: ; */
+  max-width: min-content;
 }
 
 .card-payment__text {
   font-size: 22px;
+}
+
+.card-payment__text--bold:nth-child(1) {
+  padding-right: 78px;
+}
+
+.card-payment__text--bold:nth-child(2) {
+  padding-right: 57px;
+}
+
+.card-payment__text--bold:nth-child(3) {
+  padding-right: 95px;
+}
+
+.card-payment__text--bold:nth-child(4) {
+  padding-right: 95px;
+}
+
+@media (max-width: 1020px) {
+  .card-payment__text--bold {
+    font-size: 16px;
+  }
+
+  .card-payment__text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 687px) {
+  .card-payment__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-payment__wrapper {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .card-payment__text--bold {
+    max-width: 161px !important;
+    padding: 0 !important;
+    padding-right: 96px !important;
+  }
+
+  .card-payment__column + .card-payment__column {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card-payment__text {
+    font-size: 14px;
+  }
+
+  .card-payment__text--bold {
+    padding-right: 46px !important;
+    max-width: min-content !important;
+  }
 }
