@@ -28,13 +28,13 @@
 }
 
 .card-payment__text--bold {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   max-width: min-content;
 }
 
 .card-payment__text {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .card-payment__text--bold:nth-child(1) {

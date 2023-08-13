@@ -10,17 +10,18 @@ const CardPayer = () => {
       <div className='card-payer__title'>Информация о плательщике</div>
       <form className='card-payer__wrapper'>
         <div className='card-payer__form-body'>
-          <input className='card-payer__input' placeholder='Фамилия' type='text' />
-          <input className='card-payer__input' placeholder='Имя' type='text' />
+          <input className='card-payer__input' placeholder='Фамилия' type='text' required />
+          <input className='card-payer__input' placeholder='Имя' type='text' required />
           <input
             className='card-payer__input'
             placeholder='Номер телефона отправителя'
             type='text'
+            required
           />
           <Select className='card-payer__select' text={"Страна"} array={countriesRu} />
-          <input className='card-payer__input' placeholder='Город' type='text' />
-          <input className='card-payer__input' placeholder='Адрес' type='text' />
-          <input className='card-payer__input' placeholder='Email' type='email' />
+          <input className='card-payer__input' placeholder='Город' type='text' required />
+          <input className='card-payer__input' placeholder='Адрес' type='text' required />
+          <input className='card-payer__input' placeholder='Email' type='email' required />
           <input className='card-payer__input' placeholder='Индекс' />
           <Select className='card-payer__select' text={"Выбрать банк"} contained array={banks} />
         </div>

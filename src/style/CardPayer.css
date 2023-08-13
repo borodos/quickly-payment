@@ -24,22 +24,29 @@
   border: none;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  height: 48px;
+  height: 40px;
   text-align: center;
   font-family: Inter;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .card-payer__select {
   font-size: 18px;
   height: 48px;
+  font-size: 16px;
 }
 
 .card-payer__button {
   margin-top: 47px;
   padding: 13px 145px;
   font-size: 18px;
-  height: 48px;
+  height: 40px;
+}
+
+@media (max-height: 820px) {
+  .card-payer__form-body {
+    row-gap: 25px;
+  }
 }
 
 @media (max-width: 1020px) {
