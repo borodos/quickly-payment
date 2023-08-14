@@ -19,6 +19,10 @@
   row-gap: 32px;
 }
 
+.card-payer__column {
+  position: relative;
+}
+
 .card-payer__input {
   background-color: #fff;
   border: none;
@@ -28,6 +32,7 @@
   text-align: center;
   font-family: Inter;
   font-size: 16px;
+  width: 100%;
 }
 
 .card-payer__select {
@@ -38,9 +43,27 @@
 
 .card-payer__button {
   margin-top: 47px;
-  padding: 13px 145px;
+  margin-right: auto;
   font-size: 18px;
   height: 40px;
+  max-width: 390px;
+  width: 33.333%;
+}
+
+.input--error {
+  outline: 2px solid red;
+}
+
+input:invalid {
+  border: none;
+  outline: 2px solid red;
+  border-radius: 5px;
+}
+
+@media (max-height: 1324px) {
+  .card-payer__button {
+    width: 30%;
+  }
 }
 
 @media (max-height: 820px) {
@@ -63,6 +86,9 @@
   .card-payer__form-body {
     grid-template-columns: repeat(2, auto);
   }
+  .card-payer__button {
+    width: calc(50% - 28px);
+  }
 }
 
 @media (max-width: 643px) {
@@ -74,5 +100,6 @@
     width: 100%;
     font-size: 16px;
     padding: 0;
+    max-width: none;
   }
 }

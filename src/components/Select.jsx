@@ -1,14 +1,39 @@
 import "../style/Select.css";
 import Button from "./Button";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDetectClickOutside } from "react-detect-click-outside";
 
-const Select = ({ className, contained, text, array, language }) => {
+const Select = ({
+  className,
+  contained,
+  text,
+  array,
+  language,
+  inForm,
+  setValue,
+  bank,
+  errors,
+  touched,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectText, setSelectText] = useState("");
+  const [selectBank, setSelectBank] = useState("");
+
   const [selectIcon, setSelectIcon] = useState("");
   const ref = useDetectClickOutside({ onTriggered: () => setIsOpen(false) });
+
+  useEffect(() => {
+    if (inForm) {
+      setValue("bank", selectBank);
+    }
+  }, [selectBank]);
+
+  useEffect(() => {
+    if (inForm) {
+      setValue("country", selectText);
+    }
+  }, [selectText]);
 
   const setText = (value) => {
     if (value.src) {
@@ -22,12 +47,19 @@ const Select = ({ className, contained, text, array, language }) => {
     <div
       className={clsx("select", className, {
         "select-contained": contained,
+        "select-bank": bank,
+        "select-error": errors?.country && touched?.country && !bank,
+        "select-error-bank": errors?.bank && touched?.bank && bank,
       })}
       onClick={() => setIsOpen(!isOpen)}
       ref={ref}
     >
       <div className='select__text'>
-        {selectIcon ? <img src={selectIcon} alt='Icon' /> : <span>{selectText || text}</span>}
+        {selectIcon ? (
+          <img src={selectIcon} alt='Icon' />
+        ) : (
+          <span>{selectText || selectBank || text}</span>
+        )}
         {contained ? (
           <svg
             width='26'
@@ -78,7 +110,7 @@ const Select = ({ className, contained, text, array, language }) => {
                 <div
                   className={`${contained ? "contained-list-element" : "select__list-element"}`}
                   key={`${index}-${value}`}
-                  onClick={() => setSelectText(value)}
+                  onClick={() => (bank ? setSelectBank(value) : setSelectText(value))}
                 >
                   {contained ? (
                     <>
@@ -86,7 +118,7 @@ const Select = ({ className, contained, text, array, language }) => {
                       <Button
                         className='select__button'
                         contained
-                        onClick={(value) => setSelectText(value)}
+                        onClick={(value) => setSelectBank(value)}
                         type='button'
                       >
                         Make Payment
