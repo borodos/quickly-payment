@@ -11,9 +11,9 @@ const CardPayment = ({ languageSelect }) => {
     <div className='card-payment'>
       <div className='card-payment__title'>{text.cardPayment.title}</div>
       <div className='card-payment__wrapper'>
-        {text.cardPayment.columns.map((value, indexColumn) => (
+        {text.cardPayment.columns.map((valueColumn, indexColumn) => (
           <div className='card-payment__column' key={indexColumn}>
-            {value.rows.map((value, indexRow) => (
+            {valueColumn.rows.map((value, indexRow) => (
               <div
                 className='card-payment__row'
                 key={indexRow}
@@ -21,7 +21,8 @@ const CardPayment = ({ languageSelect }) => {
               >
                 <div className='card-payment__text--bold'>{value.rowName}</div>
                 <div className='card-payment__text'>
-                  {indexColumn === text.cardPayment.columns.length - 1 ? (
+                  {indexColumn === text.cardPayment.columns.length - 1 &&
+                  indexRow === valueColumn.rows.length - 1 ? (
                     <PaymentTimer expiryTimestamp={time} />
                   ) : (
                     value.content
