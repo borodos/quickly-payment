@@ -3,7 +3,7 @@ import Button from "./Button";
 import Select from "./Select";
 import { languages } from "../languages";
 
-const Header = () => {
+const Header = ({ setLanguage }) => {
   return (
     <div className='header'>
       <div className='header__body'>
@@ -40,6 +40,7 @@ const Header = () => {
           }
           array={languages}
           language
+          setLanguage={setLanguage}
         />
         <div className='header__title'>
           <svg

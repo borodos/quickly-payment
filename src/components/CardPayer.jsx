@@ -3,13 +3,19 @@ import Button from "./Button";
 import ErrorContainer from "./ErrorContainer";
 import Select from "./Select";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { buttonText, texts } from "../texts";
 import { banks } from "./../banks";
 import { countriesRu } from "./../countreis";
 
-const CardPayer = () => {
+const CardPayer = ({ languageSelect }) => {
+  let text = texts.filter((value) => value.language === languageSelect);
+  let textButton = buttonText.filter((value) => value.language === languageSelect);
+  text = text[0];
+  textButton = textButton[0];
+  console.log(text);
   return (
     <div className='card-payer'>
-      <div className='card-payer__title'>Информация о плательщике</div>
+      <div className='card-payer__title'>{text.cardPayer.title}</div>
       <Formik
         initialValues={{
           email: "",
@@ -25,31 +31,67 @@ const CardPayer = () => {
         validate={(values) => {
           const errors = {};
           if (!values.lastName) {
-            errors.lastName = "Введите фамилию";
+            if (languageSelect === "RU") errors.lastName = "Введите фамилию";
+            if (languageSelect === "EN") errors.lastName = "Enter your last name";
+            if (languageSelect === "FR") errors.lastName = "Entrez votre nom de famille";
+            if (languageSelect === "DE") errors.lastName = "Geben Sie Ihren Nachnamen ein";
+            if (languageSelect === "IT") errors.lastName = "Inserisci il cognome";
           }
           if (!values.firstName) {
-            errors.firstName = "Введите имя";
+            if (languageSelect === "RU") errors.firstName = "Введите имя";
+            if (languageSelect === "EN") errors.firstName = "Enter a name";
+            if (languageSelect === "FR") errors.firstName = "Entrez un nom";
+            if (languageSelect === "DE") errors.firstName = "Geben Sie einen Namen ein";
+            if (languageSelect === "IT") errors.firstName = "Inserisci un nome";
           }
           if (!values.phone) {
-            errors.phone = "Введите телефон";
+            if (languageSelect === "RU") errors.phone = "Введите телефон";
+            if (languageSelect === "EN") errors.phone = "Enter a phone number";
+            if (languageSelect === "FR") errors.phone = "Entrez le téléphone";
+            if (languageSelect === "DE") errors.phone = "Geben Sie das Telefon ein";
+            if (languageSelect === "IT") errors.phone = "Inserisci il telefono";
           }
           if (!values.country) {
-            errors.country = "Выберете страну";
+            if (languageSelect === "RU") errors.country = "Выберете страну";
+            if (languageSelect === "EN") errors.country = "Select a country";
+            if (languageSelect === "FR") errors.country = "Sélectionnez un pays";
+            if (languageSelect === "DE") errors.country = "Land auswählen";
+            if (languageSelect === "IT") errors.country = "Seleziona un paese";
           }
           if (!values.bank) {
-            errors.bank = "Выберете банк";
+            if (languageSelect === "RU") errors.bank = "Выберете банк";
+            if (languageSelect === "EN") errors.bank = "Select a bank";
+            if (languageSelect === "FR") errors.bank = "Sélectionnez une banque";
+            if (languageSelect === "DE") errors.bank = "Bank auswählen";
+            if (languageSelect === "IT") errors.bank = "Scegli una banca";
           }
           if (!values.city) {
-            errors.city = "Введите город";
+            if (languageSelect === "RU") errors.city = "Введите город";
+            if (languageSelect === "EN") errors.city = "Enter the city";
+            if (languageSelect === "FR") errors.city = "Entrez la ville";
+            if (languageSelect === "DE") errors.city = "Stadt eingeben";
+            if (languageSelect === "IT") errors.city = "Inserisci la città";
           }
           if (!values.address) {
-            errors.address = "Введите адрес";
+            if (languageSelect === "RU") errors.address = "Введите адрес";
+            if (languageSelect === "EN") errors.address = "Enter the address";
+            if (languageSelect === "FR") errors.address = "Entrez l'adresse";
+            if (languageSelect === "DE") errors.address = "Adresse eingeben";
+            if (languageSelect === "IT") errors.address = "Inserisci l'indirizzo";
           }
           if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-            errors.email = "Некорректный email";
+            if (languageSelect === "RU") errors.email = "Некорректный email";
+            if (languageSelect === "EN") errors.email = "Incorrect email";
+            if (languageSelect === "FR") errors.email = "Email incorrect";
+            if (languageSelect === "DE") errors.email = "Falsche E-Mail";
+            if (languageSelect === "IT") errors.email = "Email errata";
           }
           if (!values.index) {
-            errors.index = "Введите индекс";
+            if (languageSelect === "RU") errors.index = "Введите индекс";
+            if (languageSelect === "EN") errors.index = "Enter the zip code";
+            if (languageSelect === "FR") errors.index = "Entrez le code postal";
+            if (languageSelect === "DE") errors.index = "Geben Sie die Postleitzahl ein";
+            if (languageSelect === "IT") errors.index = "Inserisci il Codice Postale";
           }
           return errors;
         }}
@@ -68,7 +110,7 @@ const CardPayer = () => {
                   className={`card-payer__input ${
                     touched.lastName && errors.lastName ? "input--error" : ""
                   }`}
-                  placeholder='Фамилия'
+                  placeholder={text.cardPayer.lastName}
                   type='text'
                   name='lastName'
                   onChange={handleChange}
@@ -82,7 +124,7 @@ const CardPayer = () => {
                   className={`card-payer__input ${
                     touched.firstName && errors.firstName ? "input--error" : ""
                   }`}
-                  placeholder='Имя'
+                  placeholder={text.cardPayer.firstName}
                   type='text'
                   name='firstName'
                   onChange={handleChange}
@@ -97,7 +139,7 @@ const CardPayer = () => {
                   className={`card-payer__input ${
                     touched.phone && errors.phone ? "input--error" : ""
                   }`}
-                  placeholder='Номер телефона отправителя'
+                  placeholder={text.cardPayer.phone}
                   type='text'
                   name='phone'
                   onChange={handleChange}
@@ -110,7 +152,7 @@ const CardPayer = () => {
               <div className='card-payer__column'>
                 <Select
                   className='card-payer__select'
-                  text={"Страна"}
+                  text={text.cardPayer.country}
                   array={countriesRu}
                   inForm
                   setValue={setFieldValue}
@@ -125,7 +167,7 @@ const CardPayer = () => {
                   className={`card-payer__input ${
                     touched.city && errors.city ? "input--error" : ""
                   }`}
-                  placeholder='Город'
+                  placeholder={text.cardPayer.city}
                   type='text'
                   name='city'
                   onChange={handleChange}
@@ -140,7 +182,7 @@ const CardPayer = () => {
                   className={`card-payer__input ${
                     touched.address && errors.address ? "input--error" : ""
                   }`}
-                  placeholder='Адрес'
+                  placeholder={text.cardPayer.address}
                   type='text'
                   name='address'
                   onChange={handleChange}
@@ -170,7 +212,7 @@ const CardPayer = () => {
                   className={`card-payer__input ${
                     touched.index && errors.index ? "input--error" : ""
                   }`}
-                  placeholder='Индекс'
+                  placeholder={text.cardPayer.index}
                   name='index'
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -182,7 +224,7 @@ const CardPayer = () => {
               <div className='card-payer__column'>
                 <Select
                   className='card-payer__select'
-                  text={"Выбрать банк"}
+                  text={text.cardPayer.bank}
                   contained
                   array={banks}
                   inForm
@@ -194,8 +236,8 @@ const CardPayer = () => {
                 <ErrorMessage name='bank' render={(msg) => <ErrorContainer msg={msg} />} />
               </div>
             </div>
-            <Button className='card-payer__button' contained type='submit'>
-              Перейти к оплате
+            <Button className='card-payer__button' contained type='submit' languageSelect>
+              {textButton.text}
             </Button>
           </Form>
         )}

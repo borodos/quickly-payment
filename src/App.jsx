@@ -2,15 +2,17 @@ import CardPayer from "./components/CardPayer";
 import CardPayment from "./components/CardPayment";
 import Container from "./components/Container";
 import Header from "./components/Header";
+import { useState } from "react";
 
 function App() {
-  let language = "ru";
+  const [language, setLanguage] = useState("RU");
+  console.log(language);
   return (
     <>
-      <Header language={language} />
+      <Header setLanguage={setLanguage} />
       <Container>
-        <CardPayment language={language} />
-        <CardPayer language={language} />
+        <CardPayment languageSelect={language} />
+        <CardPayer languageSelect={language} />
       </Container>
     </>
   );

@@ -2,5 +2,11 @@
   margin: 0 auto;
   font-family: Inter;
   max-width: 1300px;
-  padding: 0 9px 9px;
+  padding: 0 70px 9px;
+}
+
+@media (max-width: 1075px) {
+  .container {
+    padding: 0 9px 0;
+  }
 }

@@ -62,7 +62,7 @@ input:invalid {
 
 @media (max-height: 1324px) {
   .card-payer__button {
-    width: 30%;
+    width: calc(33.333% - 35px);
   }
 }
 

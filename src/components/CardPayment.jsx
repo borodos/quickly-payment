@@ -1,48 +1,36 @@
 import "../style/CardPayment.css";
+import PaymentTimer from "./PaymentTimer";
+import { texts } from "../texts";
 
-const CardPayment = () => {
+const CardPayment = ({ languageSelect }) => {
+  let text = texts.filter((value) => value.language === languageSelect);
+  text = text[0];
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 600);
   return (
     <div className='card-payment'>
-      <div className='card-payment__title'>Информация о платеже</div>
+      <div className='card-payment__title'>{text.cardPayment.title}</div>
       <div className='card-payment__wrapper'>
-        <div className='card-payment__column'>
-          <div className='card-payment__row'>
-            <div className='card-payment__text--bold'>Магазин</div>
-            <div className='card-payment__text'>Client 8</div>
+        {text.cardPayment.columns.map((value, indexColumn) => (
+          <div className='card-payment__column' key={indexColumn}>
+            {value.rows.map((value, indexRow) => (
+              <div
+                className='card-payment__row'
+                key={indexRow}
+                style={indexColumn === 0 ? null : { paddingLeft: "10px" }}
+              >
+                <div className='card-payment__text--bold'>{value.rowName}</div>
+                <div className='card-payment__text'>
+                  {indexColumn === text.cardPayment.columns.length - 1 ? (
+                    <PaymentTimer expiryTimestamp={time} />
+                  ) : (
+                    value.content
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className='card-payment__row' style={{ paddingTop: "40px" }}>
-            <div className='card-payment__text--bold'>ID платежа</div>
-            <div className='card-payment__text'>77aecdsser-4-2ca-asdasd-asdagddskmc-41</div>
-          </div>
-        </div>
-        <div className='card-payment__column'>
-          <div className='card-payment__row'>
-            <div className='card-payment__text--bold' style={{ paddingLeft: "10px" }}>
-              Валюта платежа
-            </div>
-            <div className='card-payment__text'>840</div>
-          </div>
-          <div className='card-payment__row' style={{ paddingTop: "40px" }}>
-            <div className='card-payment__text--bold' style={{ paddingLeft: "10px" }}>
-              Сумма платежа
-            </div>
-            <div className='card-payment__text'>11.23</div>
-          </div>
-        </div>
-        <div className='card-payment__column'>
-          <div className='card-payment__row'>
-            <div className='card-payment__text--bold' style={{ paddingLeft: "10px" }}>
-              Оплата по заказу
-            </div>
-            <div className='card-payment__text'>840</div>
-          </div>
-          <div className='card-payment__row' style={{ paddingTop: "40px" }}>
-            <div className='card-payment__text--bold' style={{ paddingLeft: "10px" }}>
-              Order expires in
-            </div>
-            <div className='card-payment__text'>11.23</div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -14,14 +14,25 @@
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   align-items: center;
 }
 
 .card-payment__column:nth-child(1) .card-payment__text,
 .card-payment__column:nth-child(2) .card-payment__text {
   padding-right: 6px;
+}
+
+.card-payment__column .card-payment__row:nth-child(2) {
+  padding-top: 16px;
+}
+
+.card-payment__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .card-payment__row {
@@ -43,7 +54,7 @@
   padding-right: 78px;
 }
 
-.card-payment__text--bold:nth-child(2) {
+.card-payment__row:nth-child(2) .card-payment__text--bold {
   padding-right: 57px;
 }
 
@@ -77,12 +88,16 @@
   }
 }
 
+/* @media (max-width: 880px) {
+  .card-payment__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+} */
+
 @media (max-width: 875px) {
   .card-payment__text {
     font-size: 16px;
-  }
-
-  .card-payment__wrapper {
   }
 }
 
@@ -92,20 +107,45 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 880px) {
   .card-payment__wrapper {
+    display: flex;
+
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-payment__column:nth-child(1) .card-payment__text {
+    display: inline-flex;
+    word-break: break-all;
+    padding-left: 40px;
   }
 
   .card-payment__text--bold {
-    max-width: 161px !important;
     padding: 0 !important;
-    padding-right: 96px !important;
   }
 
-  .card-payment__column + .card-payment__column {
-    padding-top: 40px;
+  .card-payment__column {
+    width: 100%;
+    max-width: 470px;
+  }
+
+  .card-payment__row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px !important;
+    padding-left: 0 !important;
+  }
+
+  .card-payment__column:nth-child(1) .card-payment__row:nth-child(1) {
+    padding-top: 0 !important;
+  }
+
+  .card-payment__text {
+    padding-right: 0 !important;
   }
 }
 
@@ -117,5 +157,9 @@
   .card-payment__text--bold {
     padding-right: 46px !important;
     max-width: min-content !important;
+  }
+
+  .card-payment__wrapper {
+    padding: 19px 41px;
   }
 }
