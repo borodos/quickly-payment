@@ -23,7 +23,7 @@ code {
 .hidden {
 }
 
-@media (max-width: 680px) {
+@media (max-width: 785px) {
   body {
     height: calc(100vh + 1000px);
   }
