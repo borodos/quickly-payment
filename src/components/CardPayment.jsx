@@ -29,6 +29,20 @@ const CardPayment = () => {
             <div className='card-payment__text'>11.23</div>
           </div>
         </div>
+        <div className='card-payment__column'>
+          <div className='card-payment__row'>
+            <div className='card-payment__text--bold' style={{ paddingLeft: "10px" }}>
+              Оплата по заказу
+            </div>
+            <div className='card-payment__text'>840</div>
+          </div>
+          <div className='card-payment__row' style={{ paddingTop: "40px" }}>
+            <div className='card-payment__text--bold' style={{ paddingLeft: "10px" }}>
+              Order expires in
+            </div>
+            <div className='card-payment__text'>11.23</div>
+          </div>
+        </div>
       </div>
     </div>
   );

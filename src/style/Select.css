@@ -117,9 +117,15 @@
 }
 
 .language-list {
-  max-height: 323px;
-  overflow: hidden;
+  max-height: 0;
   left: 0;
+  overflow: hidden;
+}
+
+.language-list--open {
+  max-height: 328px;
+  left: 0;
+  overflow: hidden;
 }
 
 .language-element {
