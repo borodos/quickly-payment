@@ -104,6 +104,7 @@ export const texts = [
       city: "City",
       address: "Address",
       index: "Postcode",
+      bank: "Choose a bank",
     },
   },
   {
@@ -290,5 +291,53 @@ export const buttonText = [
   {
     language: "IT",
     text: "Vai a pagamento",
+  },
+];
+
+export const columnTitleText = [
+  {
+    language: "RU",
+    titleFirst: "Магазин",
+    titleSecond: "ID платежа",
+    titleThird: "Валюта платежа",
+    titleFourth: "Сумма платежа",
+    titleFifth: "Оплата по заказу",
+    titleSixth: "Срок действия истекает",
+  },
+  {
+    language: "EN",
+    titleFirst: "Store",
+    titleSecond: "ID payment",
+    titleThird: "Payment currency",
+    titleFourth: "Payment amount",
+    titleFifth: "Payment by order",
+    titleSixth: "Order expires in",
+  },
+  {
+    language: "FR",
+    titleFirst: "Magasin",
+    titleSecond: "ID de paiement",
+    titleThird: "Devise de paiement",
+    titleFourth: "Payment amount",
+    titleFifth: "Montant du paiement",
+    titleSixth: "La commande expire dans",
+  },
+  {
+    language: "DE",
+    titleFirst: "Geschäft",
+    titleSecond: "Zahlungs-ID",
+    titleThird: "Zahlungswährung",
+    titleFourth: "Zahlungsbetrag",
+    titleFifth: "Zahlung auf bestellung",
+    titleSixth: "Der befehl läuft ab in",
+  },
+  {
+    language: "IT",
+    titleFirst: "Negozio",
+    titleSecond: "ID di pagamento",
+    titleThird: "Valuta del pagamento",
+    titleFourth: "Importo del pagamento",
+    titleFifth: "Pagamento per ordine",
+    titleSixth: "L'ordine scade tra",
   },
 ];

@@ -5,14 +5,14 @@ import Select from "./Select";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { buttonText, texts } from "../texts";
 import { banks } from "./../banks";
-import { countriesRu } from "./../countreis";
+import { countriesEng, countriesRu } from "./../countreis";
 
 const CardPayer = ({ languageSelect }) => {
   let text = texts.filter((value) => value.language === languageSelect);
   let textButton = buttonText.filter((value) => value.language === languageSelect);
   text = text[0];
   textButton = textButton[0];
-  console.log(text);
+  console.log(textButton);
   return (
     <div className='card-payer'>
       <div className='card-payer__title'>{text.cardPayer.title}</div>
@@ -153,7 +153,7 @@ const CardPayer = ({ languageSelect }) => {
                 <Select
                   className='card-payer__select'
                   text={text.cardPayer.country}
-                  array={countriesRu}
+                  array={languageSelect === "RU" ? countriesRu : countriesEng}
                   inForm
                   setValue={setFieldValue}
                   errors={errors}
@@ -235,10 +235,15 @@ const CardPayer = ({ languageSelect }) => {
                 />
                 <ErrorMessage name='bank' render={(msg) => <ErrorContainer msg={msg} />} />
               </div>
+              <Button
+                className='card-payer__button button--mobile'
+                contained
+                type='submit'
+                languageSelect
+              >
+                {textButton.text}
+              </Button>
             </div>
-            <Button className='card-payer__button' contained type='submit' languageSelect>
-              {textButton.text}
-            </Button>
           </Form>
         )}
       </Formik>

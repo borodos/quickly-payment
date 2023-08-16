@@ -42,28 +42,24 @@
 }
 
 .card-payer__button {
-  margin-top: 47px;
   margin-right: auto;
   font-size: 18px;
   height: 40px;
-  max-width: 390px;
-  width: 33.333%;
+  width: 100%;
 }
 
 .input--error {
   outline: 2px solid red;
 }
 
+.button--open {
+  display: none;
+}
+
 input:invalid {
   border: none;
   outline: 2px solid red;
   border-radius: 5px;
-}
-
-@media (max-height: 1324px) {
-  .card-payer__button {
-    width: calc(33.333% - 35px);
-  }
 }
 
 @media (max-height: 820px) {
@@ -85,9 +81,12 @@ input:invalid {
 @media (max-width: 880px) {
   .card-payer__form-body {
     grid-template-columns: repeat(2, auto);
+    position: relative;
   }
   .card-payer__button {
-    width: calc(50% - 28px);
+    position: absolute;
+    bottom: -85px;
+    max-width: 394.5px;
   }
 }
 

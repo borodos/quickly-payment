@@ -14,9 +14,9 @@
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
   display: grid;
   grid-template-columns: repeat(3, auto);
-  align-items: center;
 }
 
 .card-payment__column:nth-child(1) .card-payment__text,
@@ -35,6 +35,16 @@
   height: 100%;
 }
 
+.card-payment__column-title {
+  padding: 0 8px;
+  max-width: 140px;
+}
+
+.card-payment__column-title:nth-child(2),
+.card-payment__text:nth-child(2) {
+  padding-top: 20px;
+}
+
 .card-payment__row {
   display: flex;
   align-items: center;
@@ -43,11 +53,15 @@
 .card-payment__text--bold {
   font-size: 16px;
   font-weight: 400;
-  max-width: 166px;
+}
+
+.card-payment__mobile {
+  display: flex;
 }
 
 .card-payment__text {
   font-size: 18px;
+  word-break: break-all;
 }
 
 .card-payment__text--bold:nth-child(1) {
@@ -110,10 +124,11 @@
 @media (max-width: 880px) {
   .card-payment__wrapper {
     display: flex;
-
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  }
+
+  .card-payment__column-title {
+    max-width: none;
   }
 
   .card-payment__column:nth-child(1) .card-payment__text {
@@ -140,12 +155,25 @@
     padding-left: 0 !important;
   }
 
-  .card-payment__column:nth-child(1) .card-payment__row:nth-child(1) {
+  .card-payment__text {
+    padding-right: 0 !important;
+    padding-top: 20px;
+  }
+
+  .card-payment__column-title {
+    padding-top: 20px;
+  }
+
+  .card-payment__mobile:nth-child(1)
+    .card-payment__column:nth-child(1)
+    .card-payment__column-title:nth-child(1) {
     padding-top: 0 !important;
   }
 
-  .card-payment__text {
-    padding-right: 0 !important;
+  .card-payment__mobile:nth-child(1)
+    .card-payment__column:nth-child(2)
+    .card-payment__text:nth-child(1) {
+    padding-top: 0 !important;
   }
 }
 
