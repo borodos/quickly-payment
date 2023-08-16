@@ -89,6 +89,22 @@
   display: none;
 }
 
+.card-payment__mobile:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-payment__mobile:nth-child(3) .card-payment__text {
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.card-payment__mobile:nth-child(3) .card-payment__column-title {
+  padding: 0;
+  max-width: none;
+}
+
 @media (max-width: 1128px) {
   .card-payment__column:nth-child(1) .card-payment__text {
     max-width: 228px;

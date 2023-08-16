@@ -2,6 +2,7 @@ import CardPayer from "./components/CardPayer";
 import CardPayment from "./components/CardPayment";
 import Container from "./components/Container";
 import Header from "./components/Header";
+import OrderPayment from "./components/OrderPayment";
 import { useState } from "react";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <>
       <Header setLanguage={setLanguage} />
       <Container>
+        <OrderPayment languageSelect={language} />
         <CardPayment languageSelect={language} />
         <CardPayer languageSelect={language} />
       </Container>
