@@ -10,3 +10,9 @@
     padding: 0 9px 0;
   }
 }
+
+@media (max-width: 643px) {
+  .container {
+    padding: 0 18px 0;
+  }
+}
