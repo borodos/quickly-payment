@@ -50,6 +50,7 @@
 
 .input--error {
   outline: 2px solid red;
+  margin-bottom: 4px;
 }
 
 .button--open {
