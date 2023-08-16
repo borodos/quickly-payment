@@ -7,7 +7,6 @@ import { useState } from "react";
 
 function App() {
   const [language, setLanguage] = useState("RU");
-  console.log(language);
   return (
     <>
       <Header setLanguage={setLanguage} />
