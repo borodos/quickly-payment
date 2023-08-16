@@ -64,6 +64,48 @@ const CardPayment = ({ languageSelect }) => {
           </div>
         </div>
       </div>
+
+      <div className='card-payment__wrapper--mobile'>
+        <div className='card-payment__column'>
+          <div className='card-payment__column-title' style={languageSelect === "DE" ? { wordBreak: "break-all" } : {}}>
+            {textTitle.titleFirst}
+          </div>
+          <div className='card-payment__text'>Client 8</div>
+        </div>
+        <div className='card-payment__column card-payment__column--content'>
+          <div className='card-payment__column-title' style={languageSelect === "DE" ? { wordBreak: "break-all" } : {}}>
+            {textTitle.titleSecond}
+          </div>
+          <div className='card-payment__text'>77aecdsser-4-2caasdasdasdagddskmc-41</div>
+        </div>
+        <div className='card-payment__column'>
+          <div className='card-payment__column-title' style={languageSelect === "DE" ? { wordBreak: "break-all" } : {}}>
+            {textTitle.titleThird}
+          </div>
+          <div className='card-payment__text'>840</div>
+        </div>
+        <div className='card-payment__column card-payment__column--content'>
+          <div className='card-payment__column-title' style={languageSelect === "DE" ? { wordBreak: "break-all" } : {}}>
+            {textTitle.titleFourth}
+          </div>
+          <div className='card-payment__text'>11.23</div>
+        </div>
+
+        <div className='card-payment__column'>
+          <div className='card-payment__column-title' style={languageSelect === "DE" ? { wordBreak: "break-all" } : {}}>
+            {textTitle.titleFifth}
+          </div>
+          <div className='card-payment__text'>840</div>
+        </div>
+        <div className='card-payment__column card-payment__column--content'>
+          <div className='card-payment__column-title' style={languageSelect === "DE" ? { wordBreak: "break-all" } : {}}>
+            {textTitle.titleSixth}
+          </div>
+          <div className='card-payment__text'>
+            <PaymentTimer expiryTimestamp={time} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
