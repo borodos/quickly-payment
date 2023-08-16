@@ -57,6 +57,7 @@
 
 .card-payment__mobile {
   display: flex;
+  align-items: center;
 }
 
 .card-payment__text {
@@ -128,7 +129,7 @@
   }
 
   .card-payment__column-title {
-    max-width: none;
+    max-width: 135px;
   }
 
   .card-payment__column:nth-child(1) .card-payment__text {
@@ -174,6 +175,22 @@
     .card-payment__column:nth-child(2)
     .card-payment__text:nth-child(1) {
     padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 845px) {
+  .card-payment__mobile:nth-child(1)
+    .card-payment__column:nth-child(1)
+    .card-payment__column-title:nth-child(1) {
+    margin-top: -20px !important;
+  }
+}
+
+@media (max-width: 528px) {
+  .card-payment__mobile:nth-child(1)
+    .card-payment__column:nth-child(1)
+    .card-payment__column-title:nth-child(1) {
+    margin-top: -40px !important;
   }
 }
 
