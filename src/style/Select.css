@@ -221,12 +221,12 @@
     font-size: 14px;
   }
   body {
-    height: calc(100vh + 700px);
+    height: calc(100vh + 900px);
   }
 }
 
 @media (max-width: 550px) {
   body {
-    height: calc(100vh + 800px);
+    height: calc(100vh + 1000px);
   }
 }
